@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "compile-sass": "node-sass sass/styles.scss public/stylesheets/style.css --watch"
+    "watch-sass": "node-sass sass/styles.scss public/stylesheets/style.css --watch",
+    "start-jsx": "npx babel --watch src --out-dir public/javascripts --presets react-app/prod"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
@@ -16,5 +19,18 @@
   },
   "devDependencies": {
     "node-sass": "^4.14.1"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Floopion/web3Node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Floopion/web3Node/issues"
+  },
+  "homepage": "https://github.com/Floopion/web3Node#readme",
+  "description": ""
 }
