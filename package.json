@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build": "webpack",
     "watch-sass": "node-sass sass/styles.scss public/stylesheets/style.css --watch",
-    "build": "webpack && npm start",
     "start": "node ./bin/www"
   },
   "dependencies": {
