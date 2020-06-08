@@ -30,7 +30,7 @@ class App extends React.Component {
             error
           });
         }
-      )
+      );
   }
 
   render() {
@@ -43,9 +43,7 @@ class App extends React.Component {
       return (
         <select id="countries">
           {items.map(item => (
-            <option key={item.name} classID={item.id}>
-              {item.name}
-            </option>
+            <CountryOption name={item.name} id={item._id.$oid} />
           ))}
         </select>
       );
@@ -53,5 +51,9 @@ class App extends React.Component {
   }
 }
 
-  let domContainer = document.querySelector('#request');
+function CountryOption(props) {
+  return <option key={props.id} id={props.id}> {props.name} </option>;
+}
+
+  let domContainer = document.querySelector('#comboBox');
   ReactDOM.render(<App />, domContainer);
