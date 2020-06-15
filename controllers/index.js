@@ -1,7 +1,7 @@
 module.exports = {
 
     index(req, res){
-      return  res.status(200).render('index', { title: 'Please Select a Country' });
+      return  res.status(200).render('index', { title: 'Country Admin Panel' });
     },
 
 }

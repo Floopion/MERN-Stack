@@ -1,3 +1,6 @@
+import React from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
 export class CountrySelection extends React.Component {
     constructor(props) {
       super(props);
@@ -38,16 +41,20 @@ export class CountrySelection extends React.Component {
         return <div>Loading Countries...</div>;
       } else {
         return (
-          <select id="countries">
-            {items.map(item => (
-              <CountryOption name={item.name} id={item._id.$oid} />
-            ))}
-          </select>
+          <Form>
+            <FormGroup>
+              <Input type="select" name="select" id="countries">
+                  {items.map(item => (
+                    <CountryOption name={item.name} id={item._id.$oid} />
+                  ))} 
+              </Input>
+            </FormGroup>
+          </Form>
         );
       }
     }
   }
   
   function CountryOption(props) {
-    return <option key={props.id} id={props.id}> {props.name} </option>;
+    return <option value={props.id} key={props.id} id={props.id}> {props.name} </option>;
   }
