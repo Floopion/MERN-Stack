@@ -14,3 +14,8 @@ h1 {
 .formBox {
   margin: 70px auto;
   width: 85%; }
+
+.errors {
+  color: red;
+  text-align: center;
+  font-weight: bolder; }

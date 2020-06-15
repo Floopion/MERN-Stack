@@ -33,9 +33,9 @@ export const Navigation = (props) => {
             <NavItem>
               <Button outline color="danger">Delete Selected Country</Button>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <Button outline color="warning">Edit Selected Country</Button>
-            </NavItem>
+            </NavItem> */}
           </Nav>
           <NavbarText>Dion Bedford</NavbarText>
         </Collapse>
