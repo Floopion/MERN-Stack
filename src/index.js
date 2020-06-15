@@ -6,5 +6,8 @@ import {Navigation} from './navigation'
 let nav = document.querySelector('#nav');
 ReactDOM.render(<Navigation /> , nav);
 
-let boxContainer = document.querySelector('#comboBox');
-ReactDOM.render(<CountrySelection />, boxContainer);
+let countrySelectBox = document.querySelector('#comboBox');
+ReactDOM.render(<CountrySelection />, countrySelectBox);
+
+// let infoBox  = document.querySelector('#infoArea');
+// ReactDOM.render(<CountrySelection />, infoBox);

@@ -26,11 +26,6 @@ export const Navigation = (props) => {
         <NavbarBrand href="/">Web 3 MERN Stack</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/about">About</NavLink>
-            </NavItem>
-          </Nav>
           <Nav className="mx-auto" navbar>
             <NavItem>
               <Button outline color="success">Add New Country</Button>

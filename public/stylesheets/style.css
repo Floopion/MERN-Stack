@@ -10,3 +10,7 @@ body {
 
 h1 {
   text-align: center; }
+
+.formBox {
+  margin: 70px auto;
+  width: 85%; }
