@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import CountryData from './country_data'
 
 export class CountrySelection extends React.Component {
     constructor(props) {
@@ -10,7 +11,7 @@ export class CountrySelection extends React.Component {
         items: []
       };
     }
-  
+
     componentDidMount() {
       fetch("https://web3app.herokuapp.com/countries")
         .then(res => res.json())
@@ -32,6 +33,10 @@ export class CountrySelection extends React.Component {
           }
         );
     }
+
+    handleChange(e){
+      ReactDOM.render(<CountryData id={countries.value} />, document.querySelector('#infoArea'));
+    }
   
     render() {
       const { error, isLoaded, items } = this.state;
@@ -43,7 +48,7 @@ export class CountrySelection extends React.Component {
         return (
           <Form>
             <FormGroup>
-              <Input type="select" name="select" id="countries">
+              <Input type="select" name="select" id="countries" defaultValue={this.state.selectValue} onChange={this.state.selectValue,this.handleChange}>
                   {items.map(item => (
                     <CountryOption name={item.name} id={item._id.$oid} />
                   ))} 
@@ -56,5 +61,7 @@ export class CountrySelection extends React.Component {
   }
   
   function CountryOption(props) {
-    return <option value={props.id} key={props.id} id={props.id}> {props.name} </option>;
+    return <option value={props.id} key={props.id} id={props.name}> {props.name} </option>;
   }
+
+  export default CountryOption;
