@@ -2,21 +2,23 @@ import {Component} from 'react';
 import ReactDOM from 'react-dom'
 
 
-class CountryData extends Component {
+class SingleCountry extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
       item: [],
-      ID: props.id
+      ID: props.id,
+      image: props.image
     };
   }
 
   componentDidMount() {
     const props = this.state;
 
-    fetch("https://web3app.herokuapp.com/countries/" + props.ID)
+    if(!props.image){
+      fetch("https://web3app.herokuapp.com/countries/" + props.ID)
       .then(res => res.json())
       .then(
         (result) => {
@@ -35,17 +37,25 @@ class CountryData extends Component {
           });
         }
       );
+    }
   }
 
   render() {
-    const { error, isLoaded, item } = this.state;
-    if (error) {
+    const { error, isLoaded, item, image } = this.state;
+    if(image){
+      return(
+      <div>
+        <img src="images/worldmap.png" className={"map"}></img>
+      </div>
+      )
+    }
+    else if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading Data...</div>;
+      return <div className={"loaderContainer"}><p className={"loadingText"}>Loading Selected Country Data</p><img src="images/pacloader.gif" className={"loaderGif"} /></div>;
     } else {
       return (
-        <p>{JSON.stringify(item)}</p>
+        <div className={"container"}><p>{JSON.stringify(item)}</p></div>
       );
     }
   }
@@ -54,4 +64,4 @@ class CountryData extends Component {
 
 
 
-export default CountryData;
+export default SingleCountry;
