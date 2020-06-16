@@ -6,14 +6,15 @@ function findCountry() {
 
     $.get("/countries/" + $('#cFind').val())
     .done(function(response){
-        $('#placeholder').text(response);
+       return JSON.parse(response);
     })
     .fail(function(xhr, status, error){
         if (error == "NOT FOUND") {
-            $('#placeholder').text(error + " Please enter a valid country ID!");
+            $('#errorText').text(error + " Please enter a valid country ID!");
         }else {
-            $('#placeholder').text(error + " Please try again later.");
+            $('#errorText').text(error + " Please try again later.");
         }
+        return xhr, status, error;
     });
 };
 
@@ -34,7 +35,6 @@ function getFormData() {
 
     if ($('#cPop').val().length != 0) {
         country["cName"] = $('#cName').val();
-        console.log(country);
         pop = true;
     } else {
         alert("Please Enter a valid population number");
