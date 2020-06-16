@@ -7,91 +7,124 @@ $tertiaryColor: #FEC3A6;
 $quaternaryColor:#FF928B;
 $quinaryColor: #FFAC81; 
  
+////////////////// Base Elements /////////////////////////////////// 
  
- body{
-    background-color: #333 !important;
-    color: whitesmoke !important;
-  }
+body{
+  background-color: #333 !important;
+  color: whitesmoke !important;
+}
 
-  .nav-item{
-    margin-right: 86px;
-  }
+h1{
+  text-align: center;
+  margin-top: 35px !important;
+  background-color: #525252;
+  padding: 21px;
+  border-radius: 16px;
+  font-weight: bolder;
+  text-transform: capitalize;
+}
 
-  #nav{
-    margin-bottom: 20px;
-  }
+/////////////////// Navigation /////////////////////////////////////
 
-  h1{
-    text-align: center;
-    margin-top: 35px !important;
-    background-color: #525252;
-    padding: 21px;
-    border-radius: 16px;
-    font-weight: bolder;
-    text-transform: capitalize;
-  }
+.nav-item{
+  margin-right: 86px;
+}
 
-  .formBox{
-    margin: 70px auto;
-    width: 85%;
-  }
+#nav{
+  margin-bottom: 20px;
+}
 
-  .errors{
-    color: red;
-    text-align: center;
-    font-weight: bolder;
-  }
+///////////////// Select Box For the Countries /////////////////////
 
-  .map{
-    margin: 13% auto;
-    display: block;
-    width: 85%;
-  }
+.formBox{
+  margin: 70px auto;
+  width: 85%;
+}
 
-  .loaderContainer{
-    text-align: center;
-    display: block;
-  }
+///////////////// Placeholder Country Image ///////////////////////
 
-  .loadingText{
-    text-align: center;
-    display: inline-block;
-    margin: 0 20px;
-    color: #FFC107;
-    font-weight: bolder;
-    font-size: 20px;
-  }
+.map{
+  margin: 13% auto;
+  display: block;
+  width: 85%;
+}
 
-  .loaderGif{
-    vertical-align: middle;
-    border-style: none;
-    width: 3%;
-    padding-bottom: 7px;
-  }
 
-  .container{
-    overflow-wrap: anywhere;
-  }
+////////////// Loader Text Styling and Pacman Gif //////////////////
 
-  .modal-header, .modal-footer {
-    background-color: #333;
-    color: $quaternaryColor;
-    border-bottom: none;
-    border-top: none;
-    text-align: center;
-  }
+.loaderContainer{
+  text-align: center;
+  display: block;
+}
 
-  .modal-body{
-    background-color: #525252 ;
-    color: $secondaryColor;
-    border-bottom:1px solid $secondaryColor;
-    border-top: 1px solid $secondaryColor;
-  }
+.loadingText{
+  text-align: center;
+  display: inline-block;
+  margin: 0 20px;
+  color: #FFC107;
+  font-weight: bolder;
+  font-size: 20px;
+}
 
-  .modal-title {
-    margin-left: 42%;
-  }
+.loaderGif{
+  vertical-align: middle;
+  border-style: none;
+  width: 3%;
+  padding-bottom: 7px;
+}
 
-  .modal-body {
-    text-align: center;
-  }
+
+//////////////////// Modal styles ////////////////////////////////
+
+.container{
+  overflow-wrap: anywhere;
+}
+
+.modal-header, .modal-footer {
+  background-color: #333;
+  color: $quaternaryColor;
+  border-bottom: none;
+  border-top: none;
+  text-align: center;
+}
+
+.modal-body{
+  background-color: #525252 ;
+  color: $secondaryColor;
+  border-bottom:1px solid $secondaryColor;
+  border-top: 1px solid $secondaryColor;
+}
+
+.modal-title {
+  margin-left: 42%;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-content {
+  background-color: transparent;
+}
+
+///////////////////// Feedback Messages /////////////////////////
+
+.errorMessage{
+  text-align: center;
+  color: $quaternaryColor; 
+  font-weight: bolder;
+  margin: 28px auto -40px auto;
+  font-size: 26px;
+  display: block;
+  width: 100%;
+}
+
+.successMessage{
+  text-align: center;
+  color: $primaryColor;
+  font-weight: bolder;
+  margin: 28px auto -40px auto;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+}

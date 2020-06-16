@@ -9,8 +9,17 @@ export class CountrySelection extends React.Component {
       this.state = {
         error: null,
         isLoaded: false,
-        items: []
+        items: [],
+        refresh: false
       };
+    }
+
+    refresh(){
+      const props = this.state;
+
+      if(props.refresh){
+        this.forceUpdate();
+      }
     }
 
     componentDidMount() {
@@ -49,8 +58,8 @@ export class CountrySelection extends React.Component {
         return (
           <Form>
             <FormGroup>
-              <Input type="select" name="select" id="countries" onChange={this.handleChange}>
-                  <option key={"Title"} disabled selected>Please Select a Country</option>
+              <Input type="select" name="select" ref="countries" id="countries" onChange={this.handleChange}>
+                  <option key={"Title"} disabled selected value={"DEFAULT"}>Please Select a Country</option>
                   {items.map(item => (
                     <CountryOption name={item.name} id={item._id.$oid} />
                   ))} 
@@ -66,4 +75,4 @@ export class CountrySelection extends React.Component {
     return <option value={props.id} key={props.id} id={props.name}> {props.name} </option>;
   }
 
-  export default CountryOption;
+  export default CountrySelection;

@@ -4,12 +4,13 @@ import {CountrySelection} from './country_selector'
 import {Navigation} from './navigation'
 import SingleCountry from './country_data'
 
+// Constants so i can specify where to put my components based on the divs i have made in my pug file
+const nav = document.querySelector('#nav');
+const countrySelectBox = document.querySelector('#comboBox');
+const info = document.querySelector('#infoArea');
 
-let nav = document.querySelector('#nav');
-let countrySelectBox = document.querySelector('#comboBox');
-let info = document.querySelector('#infoArea');
 
-
-ReactDOM.render(<Navigation /> , nav);
+// Create an instance of each Component at its specified div
+ReactDOM.render(<Navigation hide={true} message={""} error={false} /> , nav);
 ReactDOM.render(<CountrySelection />, countrySelectBox);
 ReactDOM.render(<SingleCountry image={true}/>, info);

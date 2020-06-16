@@ -5,12 +5,6 @@ body {
   background-color: #333 !important;
   color: whitesmoke !important; }
 
-.nav-item {
-  margin-right: 86px; }
-
-#nav {
-  margin-bottom: 20px; }
-
 h1 {
   text-align: center;
   margin-top: 35px !important;
@@ -20,14 +14,15 @@ h1 {
   font-weight: bolder;
   text-transform: capitalize; }
 
+.nav-item {
+  margin-right: 86px; }
+
+#nav {
+  margin-bottom: 20px; }
+
 .formBox {
   margin: 70px auto;
   width: 85%; }
-
-.errors {
-  color: red;
-  text-align: center;
-  font-weight: bolder; }
 
 .map {
   margin: 13% auto;
@@ -73,3 +68,24 @@ h1 {
 
 .modal-body {
   text-align: center; }
+
+.modal-content {
+  background-color: transparent; }
+
+.errorMessage {
+  text-align: center;
+  color: #FF928B;
+  font-weight: bolder;
+  margin: 28px auto -40px auto;
+  font-size: 26px;
+  display: block;
+  width: 100%; }
+
+.successMessage {
+  text-align: center;
+  color: #CDEAC0;
+  font-weight: bolder;
+  margin: 28px auto -40px auto;
+  font-size: 20px;
+  display: block;
+  width: 100%; }
