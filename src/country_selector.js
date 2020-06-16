@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import CountryData from './country_data'
+import SingleCountry from './country_data';
 
 export class CountrySelection extends React.Component {
     constructor(props) {
@@ -35,7 +36,7 @@ export class CountrySelection extends React.Component {
     }
 
     handleChange(e){
-      ReactDOM.render(<CountryData key={countries.value} item={[]} isLoaded={false} id={countries.value} />, document.querySelector('#infoArea'));
+      ReactDOM.render(<SingleCountry key={countries.value} id={countries.value} />, document.querySelector('#infoArea'));
     }
   
     render() {
@@ -43,12 +44,13 @@ export class CountrySelection extends React.Component {
       if (error) {
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
-        return <div>Loading Countries...</div>;
+        return <div className={"loaderContainer"}><p className={"loadingText"}>Loading Country List</p><img src="images/pacloader.gif" className={"loaderGif"} /></div>;
       } else {
         return (
           <Form>
             <FormGroup>
-              <Input type="select" name="select" id="countries" defaultValue={this.state.selectValue} onChange={this.handleChange}>
+              <Input type="select" name="select" id="countries" onChange={this.handleChange}>
+                  <option key={"Title"} disabled selected>Please Select a Country</option>
                   {items.map(item => (
                     <CountryOption name={item.name} id={item._id.$oid} />
                   ))} 
