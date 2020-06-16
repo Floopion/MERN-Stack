@@ -50,13 +50,12 @@ export const Navigation = (props) => {
         ReactDOM.render(<FeedbackMessage hide={false} error={true} message={"Please Select a Country"} />, messageArea)
       }else{
         await fetch("https://web3app.herokuapp.com/countries/" + countries.value, requestOption)
-        .done(function(response){
+        .then(res => {
           ReactDOM.render(<FeedbackMessage hide={false} error={false} message={"Success!"} />, messageArea);
         })
-        .fail(function(xhr, status, error){
-          ReactDOM.render(<FeedbackMessage hide={false} error={true} message={error} />, messageArea);
-        })
-                 
+        .catch(err => {
+          ReactDOM.render(<FeedbackMessage hide={false} error={true} message={err} />, messageArea);
+        });                 
       };
     }
   }
