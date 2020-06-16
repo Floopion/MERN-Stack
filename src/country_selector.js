@@ -35,7 +35,7 @@ export class CountrySelection extends React.Component {
     }
 
     handleChange(e){
-      ReactDOM.render(<CountryData id={countries.value} />, document.querySelector('#infoArea'));
+      ReactDOM.render(<CountryData key={countries.value} item={[]} isLoaded={false} id={countries.value} />, document.querySelector('#infoArea'));
     }
   
     render() {
@@ -48,7 +48,7 @@ export class CountrySelection extends React.Component {
         return (
           <Form>
             <FormGroup>
-              <Input type="select" name="select" id="countries" defaultValue={this.state.selectValue} onChange={this.state.selectValue,this.handleChange}>
+              <Input type="select" name="select" id="countries" defaultValue={this.state.selectValue} onChange={this.handleChange}>
                   {items.map(item => (
                     <CountryOption name={item.name} id={item._id.$oid} />
                   ))} 
