@@ -54,3 +54,22 @@ h1 {
 
 .container {
   overflow-wrap: anywhere; }
+
+.modal-header, .modal-footer {
+  background-color: #333;
+  color: #FF928B;
+  border-bottom: none;
+  border-top: none;
+  text-align: center; }
+
+.modal-body {
+  background-color: #525252;
+  color: #EFE9AE;
+  border-bottom: 1px solid #EFE9AE;
+  border-top: 1px solid #EFE9AE; }
+
+.modal-title {
+  margin-left: 42%; }
+
+.modal-body {
+  text-align: center; }
