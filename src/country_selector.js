@@ -34,7 +34,7 @@ export class CountrySelection extends React.Component {
           }
         );
     }
-
+    
     handleChange(e){
       ReactDOM.render(<SingleCountry key={countries.value} id={countries.value} />, document.querySelector('#infoArea'));
     }

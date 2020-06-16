@@ -15,16 +15,12 @@ import {
   Button
 } from 'reactstrap';
 import CountryOption from './country_selector'
+import confirm from 'reactstrap-confirm'
 
 export const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-
-  function alertB(e) {
-    e.preventDefault();
-    alert(countries.value);
-  }
 
   return (
     <div>
@@ -34,7 +30,7 @@ export const Navigation = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mx-auto" navbar>
             <NavItem>
-              <Button outline color="success" onClick={alertB}>Add New Country</Button>
+              <Button outline color="success" onClick={checkResult}>Add New Country</Button>
             </NavItem>
             <NavItem>
               <Button outline color="danger">Delete Selected Country</Button>
@@ -48,5 +44,13 @@ export const Navigation = (props) => {
       </Navbar>
     </div>
   );
+
+  async function checkResult(e){
+    e.preventDefault();
+    let dialog =await confirm();
+    console.log(dialog);
+  }
 }
+
+
 
