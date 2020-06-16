@@ -1,3 +1,6 @@
+/*
+    Color variables
+ */
 body {
   background-color: #333 !important;
   color: whitesmoke !important; }
@@ -10,7 +13,12 @@ body {
 
 h1 {
   text-align: center;
-  margin-top: 55px !important; }
+  margin-top: 35px !important;
+  background-color: #525252;
+  padding: 21px;
+  border-radius: 16px;
+  font-weight: bolder;
+  text-transform: capitalize; }
 
 .formBox {
   margin: 70px auto;
@@ -22,7 +30,7 @@ h1 {
   font-weight: bolder; }
 
 .map {
-  margin: 8% auto;
+  margin: 13% auto;
   display: block;
   width: 85%; }
 

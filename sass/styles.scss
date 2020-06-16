@@ -1,5 +1,14 @@
-  
-  body{
+ /*
+    Color variables
+ */
+$primaryColor: #CDEAC0;
+$secondaryColor: #EFE9AE;
+$tertiaryColor: #FEC3A6;
+$quaternaryColor:#FF928B;
+$quinaryColor: #FFAC81; 
+ 
+ 
+ body{
     background-color: #333 !important;
     color: whitesmoke !important;
   }
@@ -14,7 +23,12 @@
 
   h1{
     text-align: center;
-    margin-top: 55px !important;
+    margin-top: 35px !important;
+    background-color: #525252;
+    padding: 21px;
+    border-radius: 16px;
+    font-weight: bolder;
+    text-transform: capitalize;
   }
 
   .formBox{
@@ -29,7 +43,7 @@
   }
 
   .map{
-    margin: 8% auto;
+    margin: 13% auto;
     display: block;
     width: 85%;
   }
