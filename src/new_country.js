@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter,Form, FormGroup, Label, Input} from 'reactstrap';
+import FeedbackMessage from './feedback_messages'
  
 class NewCountry extends React.Component {
   constructor(props) {
@@ -24,7 +25,18 @@ class NewCountry extends React.Component {
   {
     //get the value of the text bos and sanitize it for whitespace / replace any spaces with underscores so it can be sent properly
     const countryName = newCountryname.value.trim().replace(/ /g,"_");
-    console.log(countryName);
+    const requestOption = {
+        method: 'POST'
+      };
+    const messageArea = document.querySelector('#feedbackText');
+    
+    fetch("https://web3app.herokuapp.com/countries/" + countryName, requestOption )
+    .then(res => {
+        ReactDOM.render(<FeedbackMessage hide={false} error={false} message={"Success! New Country Has been added to the Database."} />, messageArea);
+      })
+      .catch(err => {
+        ReactDOM.render(<FeedbackMessage hide={false} error={true} message={err} />, messageArea);
+      });                 
 
     this.setState({
         modal: !this.state.modal

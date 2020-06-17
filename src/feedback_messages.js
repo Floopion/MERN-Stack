@@ -1,5 +1,4 @@
-import {Component} from 'react';
-import ReactDOM from 'react-dom'
+import React, {Component} from 'react';
 
 // Hide Component can accept whether it should be shown, what type of message it is,
 // and the message to display.
@@ -13,6 +12,13 @@ class FeedbackMessage extends Component {
       };
     }
   
+    componentWillReceiveProps(nextProps){
+      this.state = {
+        hide: nextProps.hide,
+        error: nextProps.error,
+        feedbackMessage: nextProps.message
+      };
+    }
     // Render checks to see if the message needs to be displayed or not,
     // If it does it checks what kind of message it is and applies the corretct class
     // and then puts the recieved error into the div
