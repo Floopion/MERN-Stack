@@ -15,7 +15,6 @@ import {
   Button,
   Alert
 } from 'reactstrap';
-import CountrySelection from './country_selector'
 import confirm from 'reactstrap-confirm'
 import FeedbackMessage from './feedback_messages'
 import NewCountry from './new_country'

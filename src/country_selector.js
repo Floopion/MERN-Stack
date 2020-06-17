@@ -10,42 +10,40 @@ export class CountrySelection extends React.Component {
         error: null,
         isLoaded: false,
         items: [],
-        refresh: props.refresh
+        update: "Loading"
       };
     }
 
-    refresh(){
-      const props = this.state;
-
+    componentWillReceiveProps(newProps){
+      
       this.state = {
         error: null,
         isLoaded: false,
         items: [],
+        update: newProps.update
       }
 
-      if(props.refresh){
-        fetch("https://web3app.herokuapp.com/countries")
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              isLoaded: true,
-              items: result
-            });
-          },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        );
-      }
+      fetch("https://web3app.herokuapp.com/countries")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
     }
-
+  
     componentDidMount() {
       fetch("https://web3app.herokuapp.com/countries")
         .then(res => res.json())
@@ -73,11 +71,11 @@ export class CountrySelection extends React.Component {
     }
   
     render() {
-      const { error, isLoaded, items } = this.state;
+      const { error, isLoaded, items, update } = this.state;
       if (error) {
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
-        return <div className={"loaderContainer"}><p className={"loadingText"}>Loading Country List</p><img src="images/pacloader.gif" className={"loaderGif"} /></div>;
+        return <div className={"loaderContainer"}><p className={"loadingText"}>{update} Country List</p><img src="images/pacloader.gif" className={"loaderGif"} /></div>;
       } else {
         return (
           <Form>
