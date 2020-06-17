@@ -51,7 +51,7 @@ export const Navigation = (props) => {
       }else{
         await fetch("https://web3app.herokuapp.com/countries/" + countries.value, requestOption)
         .then(res => {
-          ReactDOM.render(<FeedbackMessage hide={false} error={false} message={"Success!"} />, messageArea);
+          ReactDOM.render(<FeedbackMessage hide={false} error={false} message={"Success! Country Has been Deleted"} />, messageArea);
         })
         .catch(err => {
           ReactDOM.render(<FeedbackMessage hide={false} error={true} message={err} />, messageArea);

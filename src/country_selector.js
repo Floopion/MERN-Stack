@@ -10,15 +10,39 @@ export class CountrySelection extends React.Component {
         error: null,
         isLoaded: false,
         items: [],
-        refresh: false
+        refresh: props.refresh
       };
     }
 
     refresh(){
       const props = this.state;
 
+      this.state = {
+        error: null,
+        isLoaded: false,
+        items: [],
+      }
+
       if(props.refresh){
-        this.forceUpdate();
+        fetch("https://web3app.herokuapp.com/countries")
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              items: result
+            });
+          },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        );
       }
     }
 

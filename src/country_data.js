@@ -14,12 +14,17 @@ class SingleCountry extends Component {
     };
   }
 
+  // on component load run this
   componentDidMount() {
     const props = this.state;
-
+    
+    // Note to self add error handling on 404 return, You need to rewrite this as 
+    //fetch doesnt throw an error on 404 it just continues so catch is not working
+    // rework this if you get time.
     if(!props.image){
       fetch("https://web3app.herokuapp.com/countries/" + props.ID)
-      .then(res => res.json())
+      .then(res =>res.json())
+      .catch(error=>{console.log(error)})
       .then(
         (result) => {
           this.setState({
