@@ -18,6 +18,8 @@ import {
 import CountrySelection from './country_selector'
 import confirm from 'reactstrap-confirm'
 import FeedbackMessage from './feedback_messages'
+import NewCountry from './new_country'
+import ReactDOM from 'react-dom'
 
 export const Navigation = (props) => {
 
@@ -51,7 +53,7 @@ export const Navigation = (props) => {
       }else{
         await fetch("https://web3app.herokuapp.com/countries/" + countries.value, requestOption)
         .then(res => {
-          ReactDOM.render(<FeedbackMessage hide={false} error={false} message={"Success! Country Has been Deleted"} />, messageArea);
+          ReactDOM.render(<FeedbackMessage hide={false} error={false} message={"Success! Country Has been Deleted From Database."} />, messageArea);
         })
         .catch(err => {
           ReactDOM.render(<FeedbackMessage hide={false} error={true} message={err} />, messageArea);
@@ -61,14 +63,15 @@ export const Navigation = (props) => {
   }
 
   return (
+   
     <div>
       <Navbar color="dark" dark expand="md">
         <NavbarBrand href="/">Web 3 MERN Stack</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mx-auto" navbar>
-            <NavItem>
-              <Button outline color="success">Add New Country</Button>
+            <NavItem id="newCountry">
+              {NewCountry}
             </NavItem>
             <NavItem>
               <Button outline color="danger" onClick={deleteCountry}>Delete Selected Country</Button>
