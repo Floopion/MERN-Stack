@@ -52,7 +52,7 @@ class NewCountry extends React.Component {
             <ModalBody>
                 <Form onSubmit={this.submitHandler}>
                     <FormGroup>
-                    <Label for="newCountryname" className="h2">New Country</Label>
+                    <Label for="newCountryname" className="h2">New Country Name</Label>
                         <Input type="text" onChange={this.handleTextChange} name="newCountryname" ref="newCountryname" id="newCountryname"></Input>
                     </FormGroup>
                 </Form>
