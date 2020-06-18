@@ -9,6 +9,7 @@ class NewCountry extends React.Component {
       modal: false
     };
 
+    // These are here to make sure each function knows about this state
     this.toggle = this.toggle.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
   }
@@ -43,6 +44,9 @@ class NewCountry extends React.Component {
       });
   }
 
+  // Render both the new country button and the modal, the modal is hidden by default and will trigger when the modal state
+  // is set to true. this is controlled mainly in the toggle function which will fire on button click and when the 
+  // new country form has submitted.
   render() {
     return (
       <div>
@@ -66,7 +70,9 @@ class NewCountry extends React.Component {
     );
   }
   
-   //Prevent the form automatically submitting when the enter key is pressed
+   // Prevent the form automatically submitting when the enter key is pressed, this
+   // was a deliberate UX choice to stop the use case of accidentally submitting unwanted
+   // data. 
    submitHandler(e) {
     e.preventDefault();
     }
@@ -76,5 +82,5 @@ class NewCountry extends React.Component {
 
 
 
-// Export a new color element with th button loabel of "New Country"
+// Export a new  country ELEMENT with the button label of "New Country"
 export default <NewCountry buttonLabel='New Country ' />;

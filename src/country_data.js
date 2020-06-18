@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import ReactDOM from 'react-dom'
 
-
+// I've aaded ID and image props to this component so that I have more control over what I want to display.
 class SingleCountry extends Component {
   constructor(props) {
     super(props);
@@ -45,6 +45,10 @@ class SingleCountry extends Component {
     }
   }
 
+  /*
+   * Render method for the component will set the constants to what ever their current state is, the will return the correct div depending on
+     the constatnst state. NOTE-TOS-ELF: Consider formatting the Return JSON nicely with Maps and un-ordered List tomorrow if you get time.
+   */
   render() {
     const { error, isLoaded, item, image } = this.state;
     if(image){

@@ -6,14 +6,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   NavbarText,
   Button,
-  Alert
 } from 'reactstrap';
 import confirm from 'reactstrap-confirm'
 import FeedbackMessage from './feedback_messages'
@@ -61,8 +55,8 @@ export const Navigation = (props) => {
     }
   }
 
+  // Render the navbar, the nav bar also tells the New country button to render, which contains its modal / new country form.
   return (
-   
     <div>
       <Navbar color="dark" dark expand="md">
         <NavbarBrand href="/">Web 3 MERN Stack</NavbarBrand>

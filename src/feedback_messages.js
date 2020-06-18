@@ -1,3 +1,9 @@
+/**
+ *  In the original interest of modularity I have built an independant response message component, 
+ *  this wiil accept what message it should show, whether it should display, and if it should display as
+ *  Red - for an error, or green - for success message ( This is controlled via classes which I have written in Saas)
+ */
+
 import React, {Component} from 'react';
 import SingleCountry from './country_data'
 import {CountrySelection} from './country_selector'
@@ -34,7 +40,7 @@ class FeedbackMessage extends Component {
       ReactDOM.render(<CountrySelection update={"Updating"} />, countrySelectBox);
       ReactDOM.render(<SingleCountry image={true}/>, info);
  
-
+    // Display the correct message depending in if hide is true or not. 
       if(hide){
           return <div></div>;
       }else if(error){
@@ -47,5 +53,5 @@ class FeedbackMessage extends Component {
   }
   
   
-  
+  // export the feedback message as a component
   export default FeedbackMessage;

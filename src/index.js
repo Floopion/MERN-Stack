@@ -10,7 +10,7 @@ const countrySelectBox = document.querySelector('#comboBox');
 const info = document.querySelector('#infoArea');
 
 
-// Create an instance of each Component at its specified div
+// Create an instance of each Component at its specified div. This essentially builds my page on page load.
 ReactDOM.render(<Navigation hide={true} message={""} error={false} /> , nav);
 ReactDOM.render(<CountrySelection />, countrySelectBox);
 ReactDOM.render(<SingleCountry image={true}/>, info);
